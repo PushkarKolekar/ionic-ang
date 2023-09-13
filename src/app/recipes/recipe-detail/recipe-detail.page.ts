@@ -9,11 +9,13 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-detail.page.scss'],
 })
 export class RecipeDetailPage implements OnInit {
-  loadedRecipe!: Recipe;
+  loadedRecipe: Recipe;
   constructor(
     private activatedRoute: ActivatedRoute,
     private recipesService: RecipesService
-  ) {}
+  ) {
+     this.loadedRecipe = {} as Recipe;
+  }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe((paramMap) => {
